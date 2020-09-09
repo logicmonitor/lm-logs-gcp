@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/logicmonitor/lm-logs-sdk-go/ingest"
@@ -18,11 +19,17 @@ type GCPEvent struct {
 	Message map[string]interface{} `json:"message"`
 }
 
+type Resource struct {
+	Labels map[string]string `json:"labels"`
+	Type   string            `json:"type"`
+}
+
 type Event struct {
 	Labels      map[string]string      `json:"labels"`
 	TextPayload string                 `json:"textPayload"`
 	JsonPayload map[string]interface{} `json:"jsonPayload"`
-	Timestamp   string                 `json:"timestamp"`
+	Timestamp   time.Time              `json:"timestamp"`
+	Resource    Resource               `json:"resource"`
 }
 
 func getQueryParameter(key string, request events.APIGatewayProxyRequest) string {
@@ -30,7 +37,7 @@ func getQueryParameter(key string, request events.APIGatewayProxyRequest) string
 	if found {
 		return val
 	}
-	panic(fmt.Sprintf("query parameter:%s not found" , key))
+	panic(fmt.Sprintf("query parameter:%s not found", key))
 }
 
 func handler(_ context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
