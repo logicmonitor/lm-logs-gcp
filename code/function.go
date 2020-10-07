@@ -2,7 +2,6 @@ package p
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"os"
 	"time"
@@ -49,10 +48,6 @@ func HelloPubSub(ctx context.Context, m PubSubMessage) error {
 			fmt.Println(err)
 			fmt.Println(ingestResponse)
 		}
-
-		json, _ := json.Marshal(logs)
-		fmt.Println(string(json))
-		fmt.Println(ingestResponse)
 	}
 	return nil
 }
