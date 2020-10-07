@@ -15,7 +15,7 @@ Google Cloud Platform integration to send logs to Logic Monitor
 - Name the function **lm-logs-forwarder**
 - Select trigger as Cloud Pub/Sub
 - Select the topic you created before **export-logs-to-logic-monitor**. 
-- Click on **Variables, networking and advanced settings** and select **environment variables** tab and add LM_COMPANY_NAME , LM_ACCESS_ID , LM_ACCESSKEY and click next.
+- Click on **Variables, networking and advanced settings** and select **environment variables** tab and add **LM_COMPANY_NAME** , **LM_ACCESS_ID** , **LM_ACCESS_KEY** and click next.
 - Download ZIP from https://lm-logs-forwarder.s3-us-west-1.amazonaws.com/gcp/function-source.zip
 - Select the **Runtime as Go 1.13** and source code as ZIP Upload.
 - Name the stage bucket **lm-logs-forwarder**.
