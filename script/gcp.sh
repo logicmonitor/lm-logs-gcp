@@ -24,6 +24,7 @@ function deploy_lm-logs {
 
 	echo "Uploading source code to bucket"
 	gsutil cp ${SOURCE_ZIP} gs://${NAME}/
+	rm ${SOURCE_ZIP}
 
 	echo "Deploying google function"
 	gcloud functions deploy ${NAME} \
@@ -46,7 +47,6 @@ function delete_lm-logs {
 
 	echo "Deleting storage"
 	gsutil rm -r gs://${NAME}
-	rm ${SOURCE_ZIP}
 
 	echo "Deleting topic"
 	gcloud pubsub topics delete ${TOPIC}
