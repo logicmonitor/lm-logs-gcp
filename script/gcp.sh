@@ -9,9 +9,9 @@ SOURCE_ZIP=function-source.zip
 
 function deploy_lm-logs {
 
-	LM_COMPANY_NAME=$0
-	LM_ACCESS_ID=$1
-	LM_ACCESS_KEY=$2
+	LM_COMPANY_NAME=$1
+	LM_ACCESS_ID=$2
+	LM_ACCESS_KEY=$3
 
 	echo "Creating topic"
 	gcloud pubsub topics create ${TOPIC}
