@@ -1,4 +1,4 @@
-package main
+package p
 
 import (
 	"encoding/json"
@@ -43,11 +43,13 @@ func extractResource(event Event) (string, string) {
 	}
 
 	if event.Resource.Type == "cloud_function" {
-		functionName, _ := event.Resource.Labels["function_name"]
-		projectId, _ := event.Resource.Labels["project_id"]
-		region, _ := event.Resource.Labels["region"]
-		resourceName := fmt.Sprintf("projects/%s/locations/%s/functions/%s", projectId, region, functionName)
-		return "system.gcp.resourcename", resourceName
+		functionName, ok1 := event.Resource.Labels["function_name"]
+		projectId, ok2 := event.Resource.Labels["project_id"]
+		region, ok3 := event.Resource.Labels["region"]
+		if ok1 && ok2 && ok3 {
+			resourceName := fmt.Sprintf("projects/%s/locations/%s/functions/%s", projectId, region, functionName)
+			return "system.gcp.resourcename", resourceName
+		}
 	}
 
 	return "", ""
