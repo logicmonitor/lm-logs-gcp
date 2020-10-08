@@ -1,4 +1,4 @@
-module example.com/cloudfunction
+module function.go
 
 go 1.14
 

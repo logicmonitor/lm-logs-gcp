@@ -44,7 +44,6 @@ func HelloPubSub(ctx context.Context, m PubSubMessage) error {
 
 		ingestResponse, err := lmIngest.SendLogs(logs)
 		if !ingestResponse.Success || err != nil {
-			fmt.Println(string(m.Data))
 			fmt.Println(err)
 			fmt.Println(ingestResponse)
 		}
