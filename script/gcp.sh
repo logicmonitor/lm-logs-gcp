@@ -7,7 +7,6 @@ TOPIC=export-logs-to-logicmonitor
 NAME=lm-logs-forwarder
 SOURCE_ZIP=function-source.zip
 
-
 function deploy_lm-logs {
 
 	LM_COMPANY_NAME=$0
