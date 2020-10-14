@@ -1,8 +1,5 @@
 #!/bin/bash
 
-LM_COMPANY_NAME=company
-LM_ACCESS_ID=id
-LM_ACCESS_KEY=key
 TOPIC=export-logs-to-logicmonitor
 NAME=lm-logs-forwarder
 SOURCE_ZIP=function-source.zip
