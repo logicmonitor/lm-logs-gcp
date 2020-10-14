@@ -8,7 +8,6 @@ Use the following command to select project.
 gcloud config set project [PROJECT_ID]
 ```
 
-
 Install Integration
 ``` console
 source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && 
@@ -25,3 +24,6 @@ delete_lm-logs
 - Click Create Sink and name the sink accordingly.
 - Choose Cloud Pub/Sub as the destination and select **export-to-logicmonitor**. Note: The pub/sub can be located in a different project.
 - Click Create and wait for the confirmation message to show up.
+
+# Note
+We support **VM Instance** , **GKE Container** and **Google function** logs only.
