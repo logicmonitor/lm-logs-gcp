@@ -28,7 +28,7 @@ function delete_lm-logs {
 	gcloud compute instances delete ${NAME}
 
 	echo "Deleting subscription"
-	gcloud pubsub subscriptions create ${TOPIC} --topic=${TOPIC}
+	gcloud pubsub subscriptions delete ${TOPIC}
 	
 	echo "Deleting topic"
 	gcloud pubsub topics delete ${TOPIC}
