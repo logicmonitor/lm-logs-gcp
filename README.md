@@ -17,7 +17,7 @@ source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/mast
 
 If you want to delete it later
 ``` console
-source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && deploy_lm-logs
+source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && delete_lm-logs
 ```
 
 After the script in completed, go to Virtual Machine named **lm-logs-forwarder** , SSH into it and run the following command.
