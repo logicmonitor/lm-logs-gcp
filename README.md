@@ -10,13 +10,27 @@ gcloud config set project [PROJECT_ID]
 
 Install Integration
 ``` console
-source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && 
-deploy_lm-logs "${LM_COMPANY_NAME}" "${LM_ACCESS_ID}" "${LM_ACCESS_KEY}"
+source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && deploy_lm-logs
 ```
-**Delete**
+
+ Following resources will be created
+- PubSub topic named **export-to-logicmonitor** and a pull subscription.
+- VM named **lm-logs-forwarder**.
+
+If you want to delete it later
 ``` console
-source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && 
-delete_lm-logs
+source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && deploy_lm-logs
+```
+
+After the script in completed, go to Virtual Machine named **lm-logs-forwarder** , SSH into it and run the following command.
+
+``` console
+export GCP_PROJECT_ID="${GCP_PROJECT_ID}"
+export LM_COMPANY_NAME="${LM_COMPANY_NAME}"
+export LM_ACCESS_ID="${LM_ACCESS_ID}"
+export LM_ACCESS_KEY="${LM_ACCESS_KEY}"
+
+source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/vm.sh)
 ```
 
 ## Export logs from Stackdriver to Pub Sub
@@ -26,4 +40,4 @@ delete_lm-logs
 - Click Create and wait for the confirmation message to show up.
 
 # Note
-We support **VM Instance** , **GKE Container** and **Google function** logs only.
+We support **VM Instance** and **Google function** logs only.
