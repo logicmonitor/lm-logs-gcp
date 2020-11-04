@@ -1,8 +1,7 @@
 # lm-logs-gcp(beta)
 Google Cloud Platform integration to send logs to LogicMonitor
 
-Click on **Activate Cloud Shell** and run the following command
-Use the following command to select project.
+Click on **Activate Cloud Shell** and run the following commands.
 ``` console
 gcloud config set project [PROJECT_ID]
 ```
