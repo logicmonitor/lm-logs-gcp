@@ -15,7 +15,7 @@ function deploy_lm-logs {
 	gcloud compute instances create ${NAME} \
   --image debian-10-buster-v20201014 \
   --image-project debian-cloud \
-	--machine-type=e2-standard-2
+	--machine-type=e2-micro
 
 	echo "Completed!!!"
 
