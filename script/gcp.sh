@@ -21,7 +21,6 @@ function deploy_lm-logs {
 
 }
 
-
 function delete_lm-logs {
 
 	echo "Deleting VM"
