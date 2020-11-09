@@ -1,26 +1,36 @@
 # lm-logs-gcp(beta)
 Google Cloud Platform integration to send logs to LogicMonitor
 
-Click on **Activate Cloud Shell** and run the following commands.
+## Prerequisites
+
+- LogicMonitor API access tokens.
+- We support **VM Instance** logs only.
+
+## Installation instructions
+
+Click **Activate Cloud Shell** on the top right. This opens the Cloud Shell Terminal below the workspace. 
+
+In the Terminal, run the following commands to select the project.
 ``` console
 gcloud config set project [PROJECT_ID]
 ```
 
-Install Integration
+Run the following to install the integration:
 ``` console
 source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && deploy_lm-logs
 ```
 
- Following resources will be created
-- PubSub topic named **export-to-logicmonitor** and a pull subscription.
-- VM named **lm-logs-forwarder**.
+Installing the integration creates these resources:
+- PubSub topic named **export-logs-to-lm** and a pull subscription.
+- Virtual Machine (VM) named **lm-logs-forwarder**.
 
-If you want to delete it later
-``` console
-source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && delete_lm-logs
-```
+Note: You will be prompted to confirm the region where the VM is deployed. This should be configured by default within your project.
 
-After the script in completed, go to Virtual Machine named **lm-logs-forwarder** , SSH into it and run the following command.
+After the script is completed, go to the VM named **lm-logs-forwarder**: 
+ 
+Compute Engine > VM Instances > (select LM-Logs-forward) > Remote access > (Select SSH)
+
+SSH into it and run the following command.
 
 ``` console
 export GCP_PROJECT_ID="${GCP_PROJECT_ID}"
@@ -31,11 +41,17 @@ export LM_ACCESS_KEY="${LM_ACCESS_KEY}"
 source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/vm.sh)
 ```
 
-## Export logs from Stackdriver to Pub Sub
-- Go to the Stackdriver page and filter the logs that need to be exported.
-- Click Create Sink and name the sink accordingly.
-- Choose Cloud Pub/Sub as the destination and select **export-to-logicmonitor**. Note: The pub/sub can be located in a different project.
-- Click Create and wait for the confirmation message to show up.
+## Export logs from Logging to Pub Sub
+- Go to the Logging page and filter the logs that need to be exported.
+- Click **Actions > Create** sink and under **Sink details**, provide the name.
+- Under **Sink destination**, choose **Cloud Pub/Sub** as the destination and select **export-logs-to-lm**. Note: The pub/sub can be located in a different project.
+- Click **Create sink**.
 
-# Note
-We support **VM Instance** and **Google function** logs only.
+If there are no issues you should see the logs stream into the Logs page in LogicMonitor.
+
+## Removing the integration
+
+Run the following commands to delete the integration and all its resources: 
+``` console
+source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/gcp.sh) && delete_lm-logs
+```
