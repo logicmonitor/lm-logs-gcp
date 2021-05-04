@@ -6,7 +6,7 @@ sudo apt-get install -y ruby-dev &&
 sudo gem install fluentd --no-doc &&
 sudo gem install fluent-plugin-lm-logs &&
 sudo gem install fluent-plugin-gcloud-pubsub-custom &&
-sudo gem install fluent-plugin-lm-logs-gcp
+sudo gem install fluent-plugin-lm-logs-gcp &&
 curl  https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/fluentd.conf --output template.conf &&
 envsubst < template.conf  | cat > fluentd.conf
 sudo fluentd -c ./fluentd.conf
