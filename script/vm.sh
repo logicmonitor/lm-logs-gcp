@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch="${branch:-master}"
+branch="${GIT_BRANCH:-master}"
 sudo apt-get update -y &&
 sudo apt-get install -y rubygems build-essential &&
 sudo apt-get install -y ruby-dev &&
