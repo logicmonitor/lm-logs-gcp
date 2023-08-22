@@ -10,10 +10,10 @@ function deploy_lm-logs {
 
 	echo "Creating subscription"
 	gcloud pubsub subscriptions create ${TOPIC} --topic=${TOPIC}
-	
+
 	echo "Creating VM"
 	gcloud compute instances create ${NAME} \
-  --image debian-11-bullseye-v20220621 \
+  --image debian-12-bookworm-v20230814 \
   --image-project debian-cloud \
 	--machine-type=e2-micro
 
@@ -28,7 +28,7 @@ function delete_lm-logs {
 
 	echo "Deleting subscription"
 	gcloud pubsub subscriptions delete ${TOPIC}
-	
+
 	echo "Deleting topic"
 	gcloud pubsub topics delete ${TOPIC}
 
