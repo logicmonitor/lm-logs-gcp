@@ -2,11 +2,11 @@
 
 TOPIC=export-logs-to-logicmonitor
 VM_NAME=lm-logs-forwarder
-VPC_NAME=vpc-internal
-SUBNET_NAME=subnet-internal
-ROUTER_NAME=router-internal
-NAT_NAME=nat-internal
-FIREWALL_RULE=fw-allow-ssh
+VPC_NAME=lm-vpc-internal
+SUBNET_NAME=lm-subnet-internal
+ROUTER_NAME=lm-router-internal
+NAT_NAME=lm-nat-internal
+FIREWALL_RULE=lm-fw-allow-ssh
 
 function deploy_lm-logs {
 
