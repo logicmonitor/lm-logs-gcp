@@ -10,4 +10,4 @@ sudo fluent-gem install fluent-plugin-gcloud-pubsub-custom &&
 curl  https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/${branch}/script/fluentd.conf --output template.conf &&
 envsubst < template.conf  | sed '/access_id \"\"/d;/access_key \"\"/d;/bearer_token \"\"/d' > fluentd.conf &&
 sudo cp fluentd.conf /etc/fluent/fluentd.conf &&
-sudo systemctl restart td-agent
+sudo systemctl restart fluentd
