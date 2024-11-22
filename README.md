@@ -49,6 +49,8 @@ And for GovCloud if it is like https://xyzgov.gov.us
 LM_COMPANY_NAME = xyzgov
 LM_COMPANY_DOMAIN = gov.us
 
+If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com".
+
 ## Export logs from Logging to Pub Sub
 - Go to the Logging page and filter the logs that need to be exported.
 - Click **Actions > Create** sink and under **Sink details**, provide the name.
