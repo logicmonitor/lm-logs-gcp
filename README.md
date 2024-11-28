@@ -45,9 +45,11 @@ For example, if your URL is https://xyz.logicmonitor.com then,
 LM_COMPANY_NAME = xyz
 LM_COMPANY_DOMAIN = logicmonitor.com
 
-And for GovCloud if it is like https://xyzgov.gov.us
+And for GovCloud if it is like https://xyzgov.lmgov.us
 LM_COMPANY_NAME = xyzgov
-LM_COMPANY_DOMAIN = gov.us
+LM_COMPANY_DOMAIN = lmgov.us
+
+If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com" and for incorrect domain (example: test.com), it will fail.
 
 If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com".
 
