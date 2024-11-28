@@ -41,6 +41,11 @@ export LM_ACCESS_KEY="${LM_ACCESS_KEY}"
 
 source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/vm.sh)
 ```
+Allowed domains: 
+- lmgov.us
+- qa-lmgov.us
+- logicmonitor.com
+
 For example, if your URL is https://xyz.logicmonitor.com then,
 LM_COMPANY_NAME = xyz
 LM_COMPANY_DOMAIN = logicmonitor.com
