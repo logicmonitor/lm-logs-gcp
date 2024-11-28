@@ -51,8 +51,6 @@ LM_COMPANY_DOMAIN = lmgov.us
 
 If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com" and for incorrect domain (example: test.com), it will fail.
 
-If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com".
-
 ## Export logs from Logging to Pub Sub
 - Go to the Logging page and filter the logs that need to be exported.
 - Click **Actions > Create** sink and under **Sink details**, provide the name.
