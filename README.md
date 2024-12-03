@@ -35,11 +35,26 @@ SSH into it and run the following command.
 ``` console
 export GCP_PROJECT_ID="${GCP_PROJECT_ID}"
 export LM_COMPANY_NAME="${LM_COMPANY_NAME}"
+export LM_COMPANY_DOMAIN="${LM_COMPANY_DOMAIN}"
 export LM_ACCESS_ID="${LM_ACCESS_ID}"
 export LM_ACCESS_KEY="${LM_ACCESS_KEY}"
 
 source <(curl -s https://raw.githubusercontent.com/logicmonitor/lm-logs-gcp/master/script/vm.sh)
 ```
+Allowed domains: 
+- lmgov.us
+- qa-lmgov.us
+- logicmonitor.com
+
+For example, if your URL is https://xyz.logicmonitor.com then,
+LM_COMPANY_NAME = xyz
+LM_COMPANY_DOMAIN = logicmonitor.com
+
+And for GovCloud if it is like https://xyzgov.lmgov.us
+LM_COMPANY_NAME = xyzgov
+LM_COMPANY_DOMAIN = lmgov.us
+
+If LM_COMPANY_DOMAIN is not set, by default it will be set as "logicmonitor.com" and for incorrect domain (example: test.com), it will fail.
 
 ## Export logs from Logging to Pub Sub
 - Go to the Logging page and filter the logs that need to be exported.
