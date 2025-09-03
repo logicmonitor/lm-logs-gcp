@@ -48,7 +48,7 @@ function deploy_lm-logs {
 
 	echo "Creating VM"
 	gcloud compute instances create ${VM_NAME} \
-	 --image debian-11-bullseye-v20240611 \
+	 --image debian-11-bullseye-v20250812 \
 	 --image-project debian-cloud \
 	 --machine-type=e2-micro \
 	 --subnet=${SUBNET_NAME} \
